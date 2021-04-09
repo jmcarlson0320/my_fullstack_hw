@@ -4,6 +4,16 @@
 
 /* The width of the form is specified in the styles.css file  */
 
+/*
+* {
+  border-style: solid;
+}
+*/
+
 body {
   background-color: var(--teal);
+}
+
+form {
+  background-color: white;
 }
