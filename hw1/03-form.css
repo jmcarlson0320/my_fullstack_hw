@@ -4,16 +4,53 @@
 
 /* The width of the form is specified in the styles.css file  */
 
-/*
-* {
-  border-style: solid;
-}
-*/
-
 body {
   background-color: var(--teal);
 }
 
 form {
   background-color: white;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px;
+  color: var(--lightteal);
+}
+
+.form_elem {
+  padding: 5%;
+}
+
+.single_line {
+  width: 100%;
+}
+
+.required {
+  color: var(--lightteal)
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+.comments {
+  height: 200px;
+}
+
+.submit_button > input {
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--lightteal);
+  border-color: var(--gray4);
+  color: var(--white);
 }

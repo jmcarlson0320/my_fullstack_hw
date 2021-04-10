@@ -16,27 +16,29 @@
 
         <h2>Contact Form</h2>
         
-        <label for="name">Name </label><span class="required">(required)</span><br />
-        <input type="text" id="name" name="name" />
+        <div class="form_elem">
+          <label for="name">Name </label><span class="required">(required)</span><br />
+          <input class="single_line" type="text" id="name" name="name" />
+        </div>
         
-        <br /><br />
+        <div class="form_elem">
+          <label for="email">Email Address </label><span class="required">(required)</span><br />
+          <input class="single_line" type="email" id="email" name="email" />
+        </div>
         
-        <label for="email">Email Address </label><span class="required">(required)</span><br />
-        <input type="email" id="email" name="email" />
+        <div class="form_elem comments">
+          <label for="comments">Comments?</label><br />
+          <textarea id="comments" name="comments"></textarea>
+        </div>
         
-        <br /><br />
-        
-        <label for="comments">Comments?</label><br />
-        <textarea id="comments" name="comments"></textarea>
+        <div class="form_elem">
+          <input type="checkbox" name="newsletter" id="newsletter" />
+          <label for="newsletter">Sign up for the newsletter</label>
+        </div>
 
-        <br /><br />
-        
-        <input type="checkbox" name="newsletter" id="newsletter" />
-        <label for="newsletter">Sign up for the newsletter</label>
-        
-        <br /><br />
-
-        <input type="submit" name="submit" value="Submit" />
+        <div class="form_elem submit_button">
+          <input type="submit" name="submit" value="Submit" />
+        </div>
       </form>
     </main>
   </body>
