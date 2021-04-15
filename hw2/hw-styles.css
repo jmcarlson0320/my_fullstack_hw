@@ -16,7 +16,7 @@ h1 {
   display: flex;
   flex-wrap: wrap-reverse;
   flex-direction: column-reverse;
-  align-content: space-arouns;
+  align-content: space-around;
 }
 
 .flex-item1 {
@@ -24,6 +24,9 @@ h1 {
 }
 
 /* Code for exercise 03-grid */
+.grid-container {
+
+}
 
 /* Code for exercise 04-bootstrap-grid */
 
