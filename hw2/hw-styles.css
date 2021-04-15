@@ -25,7 +25,36 @@ h1 {
 
 /* Code for exercise 03-grid */
 .grid-container {
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: 
+}
 
+.grid-item {
+  border-style: solid;
+  border-width: thin;
+  border-color: var(--white);
+}
+
+.grid-item5 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.grid-item7 {
+  grid-row: 3;
+  grid-column-start: 2;
+  grid-column-end: 6;
+}
+
+.grid-item9 {
+  grid-row: 4;
+  grid-column-start: 2;
+  grid-column-end: 5;
 }
 
 /* Code for exercise 04-bootstrap-grid */
