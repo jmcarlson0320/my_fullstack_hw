@@ -4,8 +4,24 @@ h1 {
 }
 
 /* Code for exercise 01-flex */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 /* Code for exercise 02-flex */
+.flex-container-columns {
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: column-reverse;
+  align-content: space-arouns;
+}
+
+.flex-item1 {
+  order: 10;
+}
 
 /* Code for exercise 03-grid */
 
