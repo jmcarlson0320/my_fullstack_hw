@@ -58,5 +58,46 @@ h1 {
 }
 
 /* Code for exercise 04-bootstrap-grid */
+.row > * {
+  height: 75px;
+  border: 1px solid white;
+}
+
+.row1 > * {
+  background-color: var(--navy);
+}
+
+.row2 > * {
+  background-color: var(--purple);
+}
+
+.row3 > * {
+  background-color: var(--violetred);
+}
+
+.row4 > .col1 {
+  background-color: var(--lightteal);
+}
+
+.row4 > .col2 {
+  background-color: var(--red);
+}
+
+.row5 > * {
+  background-color: var(--green);
+}
+
+
+@media (min-width: 576px) and (max-width: 992px) {
+  .col1 {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .col2 {
+    max-width: 120px;
+  }
+}
 
 /* Code for exercise 05-bootstrap-form */
