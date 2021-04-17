@@ -13,10 +13,37 @@
     <link rel="stylesheet" href="hw-styles.css" />
     <title>Bootstrap Form Exercise</title>
   </head>
-  <body>
+  <body class="bs_form">
     <main>
       <h1>05 - Bootstrap Form</h1>
       <!-- Add your code here -->
+      <div class="container mx-auto mt-4">
+        <form class="bg-light border rounded mx-auto p-4">
+          <h2 class="form_title">Contact Form</h2>
+          <br/>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="name" class="form-control" id="name" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" class="form-control" id="email" required/>
+          </div>
+          <div class="form-group">
+            <label for="comments">Comments?</label>
+            <textarea class="form-control" id="comments" name="comments"></textarea>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="checkbox" />
+            <label class="form-check-label" for="checkbox">Remember info</label>
+          </div>
+          <br/>
+          <div class="form-group text-center">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+            <input type="reset" class="btn btn-secondary" value="Reset" />
+          </div>
+        </form>
+      </div>
     </main>
   </body>
 </html>

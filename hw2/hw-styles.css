@@ -29,7 +29,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-template-areas: 
 }
 
 .grid-item {
@@ -101,3 +100,12 @@ h1 {
 }
 
 /* Code for exercise 05-bootstrap-form */
+.bs_form {
+  background-color: var(--gray1);
+}
+
+.form_title {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
