@@ -5,17 +5,18 @@ document.querySelector('#reverse').onclick = function () {
   var input = document.querySelector('#input').value;
 
   // check that it is an 8 digit number
-  // if not, send alert and return
+  // if not, write error to results div at bottom of main
   if (input.length != 8) {
-    alert('input must be an 8-digit number');
+    document.querySelector('#result').innerHTML = '</br>' + 'Error: please input an 8-digit number';
     return;
   }
 
-  // reverse the number
+  // reverse the number using built-in functions
   array = input.split("");    // convert to array
   array.reverse();            // reverse the array
   reversed = array.join("");  // convert back to string
 
-  // write the reversed number back to the input field
-  document.querySelector('#input').value = reversed;
+  // write the reversed number into the results <div> at bottom of main  
+  document.querySelector('#result').innerHTML = '</br>' + input + ' --> ' + reversed;
+
 };
