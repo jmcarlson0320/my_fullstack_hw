@@ -44,6 +44,63 @@ const server = http.createServer((req, res) => {
   }
 
   // Add your code here
+  else if (req.method === 'GET' && req.url === '/welcome') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(`<p>Welcome to my awesome site!</p>`);
+    res.end();
+  }
+
+  else if (req.method === 'GET' && req.url === '/redirect') {
+    res.writeHead(302, { 'Location': '/redirected' });
+    res.end();
+  }
+
+  else if (req.method === 'GET' && req.url === '/redirected') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(`<p>You may have been redirected to this page.</p>`);
+    res.end();
+  }
+
+  else if (req.method === 'GET' && req.url === '/cache') {
+    res.setHeader('Cache-Control', 'max-age=86400');
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<p>This resource was cached.</p>');
+    res.end();
+  }
+
+  else if (req.method === 'GET' && req.url === '/cookie') {
+    res.setHeader('Set-Cookie', 'hello=world');
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<p>cookies... yummm</p>');
+    res.end();
+  }
+
+  else if (req.method === 'GET' && req.url === '/check-cookies') {
+    // extrack cookie from header, if it DNE, then cookie will be undefined
+    let cookie = req.headers.cookie;
+    cookieTokens = cookie.split('=');
+
+    // check cookie name against "hello"
+    // print yes/no depending on match
+    let msg = 'no';
+    if (cookie) {
+      if (cookieTokens[0] === 'hello') {
+        msg = 'yes';
+      }
+    }
+
+    // send response
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(`<p>${msg}</p>`);
+    res.end();
+  }
+
+  else {
+    console.log(`${req.method} - ${req.url}`);
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.write('<h1>404: Page not found</h1>');
+    res.end();
+  }
 });
 
 server.listen(port, () => {
