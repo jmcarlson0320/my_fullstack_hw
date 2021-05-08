@@ -40,9 +40,44 @@ app.get('/', (req, res) => {
   res.end();
 });
 
-app.get('/welcome', (req, res) => {});
-
 // Add your code here
+app.get('/welcome', (req, res) => {
+  res.status(200);
+  res.set({ 'Content-Type': 'text/html' });
+  res.send('<p>This is the welcome page.</p>');
+});
+
+app.get('/redirect', (req, res) => {
+  res.status(302);
+  res.set({ 'Location': '/redirected' });
+  res.send();
+});
+
+app.get('/redirected', (req, res) => {
+  res.status(200);
+  res.set({ 'Content-Type': 'text/html' });
+  res.send('<p>You may have been redirected to this page.</p>');
+});
+
+app.get('/cache', (req, res) => {
+  res.status(200);
+  res.set({ 'Content-Type': 'text/html' });
+  res.set({ 'Cache-Control': 'max-age=86400' });
+  res.send('<p>This resource was cached.</p>');
+});
+
+app.get('/cookie', (req, res) => {
+  res.status(200);
+  res.set({ 'Set-Cookie': 'hello=world' });
+  res.set({ 'Content-Type': 'text/html' });
+  res.send('<p>cookies... yummm</p>');
+});
+
+app.get('*', (req, res) => {
+  res.status(404);
+  res.set({ 'Content-Type': 'text/html' });
+  res.send('<h1>Status 404: Not Found</h1>');
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
