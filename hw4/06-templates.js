@@ -17,29 +17,17 @@ async function getData(url) {
 
   // fetch the data from the url, store in json format
   try {
-    var response = await axios.get(url);
-    var data = await response.json;
+    let response = await axios.get(url);
+    let data = await response.json;
+    return data;
   } catch (error) {
     console.log('Error: request failed', error);
     return;
   }
-
-  // loop through the data and print the name and population to the html
-  await for (i = 0; i < data.length; i++) {
-    var country = data[i];
-    var name = country.name;
-    var population = country.population;
-
-    // format population with commas
-    population = population.toLocaleString();
-
-    // create a new list item
-
-    // add the list item to the list
-  }
 };
 
-getData(url);
+let apiData = getData(url)
+  .then(console.log(apiData)); // how do i wait for this promise to give me the data????
 
 app.get('/', (req, res) => {
   // render pug template for the index.html file
