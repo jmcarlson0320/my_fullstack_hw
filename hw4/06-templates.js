@@ -13,8 +13,6 @@ const url = 'https://restcountries.eu/rest/v2/all';
 // Add your code here
 
 async function getData(url) {
-  // Add your code here
-
   // fetch the data from the url, store in json format
   try {
     let response = await axios.get(url);
