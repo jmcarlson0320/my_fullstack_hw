@@ -24,8 +24,8 @@ async function getData(url) {
   }
 };
 
-let apiData = getData(url)
-  .then(console.log(apiData)); // how do i wait for this promise to give me the data????
+let apiData = getData(url);
+apiData.then(console.log(apiData)); // how do i wait for this promise to give me the data????
 
 app.get('/', (req, res) => {
   // render pug template for the index.html file
