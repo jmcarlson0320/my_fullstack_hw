@@ -1,3 +1,4 @@
+const axios = require('axios');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,6 +11,35 @@ app.set('view engine', 'pug');
 const url = 'https://restcountries.eu/rest/v2/all';
 
 // Add your code here
+
+async function getData(url) {
+  // Add your code here
+
+  // fetch the data from the url, store in json format
+  try {
+    var response = await axios.get(url);
+    var data = await response.json;
+  } catch (error) {
+    console.log('Error: request failed', error);
+    return;
+  }
+
+  // loop through the data and print the name and population to the html
+  await for (i = 0; i < data.length; i++) {
+    var country = data[i];
+    var name = country.name;
+    var population = country.population;
+
+    // format population with commas
+    population = population.toLocaleString();
+
+    // create a new list item
+
+    // add the list item to the list
+  }
+};
+
+getData(url);
 
 app.get('/', (req, res) => {
   // render pug template for the index.html file
