@@ -3,9 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Form Exercise</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Add your code here -->
+    <main>
+      <form action="/submit" method=post>
+        <!-- 03 - Form Exercise -->
+        <!-- Add your code below -->
+
+        <h2>Contact Form</h2>
+        
+        <div class="form_elem">
+          <label for="name">Name </label><span class="required">(required)</span><br />
+          <input class="single_line" type="text" id="name" name="name" />
+        </div>
+        
+        <div class="form_elem">
+          <label for="email">Email Address </label><span class="required">(required)</span><br />
+          <input class="single_line" type="email" id="email" name="email" />
+        </div>
+        
+        <div class="form_elem comments">
+          <label for="comments">Comments?</label><br />
+          <textarea id="comments" name="comments"></textarea>
+        </div>
+        
+        <div class="form_elem">
+          <input type="checkbox" name="newsletter" id="newsletter" />
+          <label for="newsletter">Sign up for the newsletter</label>
+        </div>
+
+        <div class="form_elem submit_button">
+          <input type="submit" name="submit" value="Submit" />
+        </div>
+      </form>
+    </main>
   </body>
 </html>
