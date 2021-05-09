@@ -28,7 +28,6 @@ app.get('/*', (req, res) => {
   // if no session, start a new "visited" list
   if (req.session.visited === undefined) {
     req.session.visited = [];
-    req.session.visited.push(req.path);
     msg = msg + `Welcome to ${req.hostname}:${port}`
   // If there already exists a session, print path and add this req to the list
   } else {
@@ -36,8 +35,10 @@ app.get('/*', (req, res) => {
     req.session.visited.forEach(elem => {
       msg = msg + elem + '\n';
     });
-    req.session.visited.push(req.path);
   }
+  // add current path to visited list, then send response
+  if (req.path !== '/favicon.ico')
+    req.session.visited.push(req.path);
   res.send(msg);
 });
 
