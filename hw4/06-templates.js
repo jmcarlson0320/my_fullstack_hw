@@ -12,29 +12,21 @@ const url = 'https://restcountries.eu/rest/v2/all';
 
 // Add your code here
 
-async function getData(url) {
-  // fetch the data from the url, store in json format
-  try {
-    let response = await axios.get(url);
-    let data = await response.json;
-    return data;
-  } catch (error) {
-    console.log('Error: request failed', error);
-    return;
-  }
-};
-
-let apiData = getData(url);
-apiData.then(data => {console.log(data)}); // how do i wait for this promise to give me the data????
+// fetch the data from the site using axios
+let data;
+axios.get(url)
+  .then(response => data = response.data)
+  .catch(err => console.log(err));
 
 app.get('/', (req, res) => {
   // render pug template for the index.html file
+  console.log(data[0]);
 
-  results = [
-    'Countries and Capitals',
-    'Most Populous Countries',
-    'Regions of the World',
-  ];
+  // fill results with the names of the countries
+  let results = [];
+  data.forEach((country, index, data) => {
+    results.push(country.name);
+  });
 
   res.render('page', {
     heading: 'Countries of the World',
@@ -46,7 +38,10 @@ app.get('/capitals', (req, res) => {
   // map the output array to create an array with country names and capitals
   // check for empty data in the output array
 
-  results = ['Afghanistan', 'Aland Islands', 'Albania'];
+  let results = [];
+  data.forEach((country, index, data) => {
+    results.push(country.name + ', ' + country.capital);
+  });
 
   res.render('page', {
     heading: 'Countries and Capitals',
