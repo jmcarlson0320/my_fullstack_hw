@@ -18,6 +18,8 @@ axios.get(url)
   .then(response => data = response.data)
   .catch(err => console.log(err));
 
+
+
 app.get('/', (req, res) => {
   // render pug template for the index.html file
   console.log(data[0]);
@@ -35,9 +37,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/capitals', (req, res) => {
-  // map the output array to create an array with country names and capitals
-  // check for empty data in the output array
-
+  // create an array with country names and capitals
   let results = [];
   data.forEach((country, index, data) => {
     results.push(country.name + ' - ' + country.capital);
@@ -71,7 +71,7 @@ app.get('/populous', (req, res) => {
   });
 
   // build array of strings to render
-  results_str = [];
+  let results_str = [];
   results.forEach((filtered_countries, index, data) => {
     results_str.push(filtered_countries[0] + ' - ' + filtered_countries[1].toLocaleString());
   });
@@ -86,11 +86,31 @@ app.get('/regions', (req, res) => {
   // reduce the output array in a resulting object that will feature the numbers of countries in each region
   // disregard empty data from the output array
 
-  results = ['Asia - 50', 'Europe - 53', 'Africa - 60'];
+  // object to hold key/value pairs
+  // key: region
+  // value: count
+  let results = {};
+  data.forEach((country, index, data) => {
+    // if new region, init with a count of 1
+    if (!results[country.region]) {
+      results[country.region] = 1;
+    }
+
+    // increment the region's count
+    results[country.region] += 1;
+  });
+
+  // convert the object to an array of strings
+  let results_str = [];
+  for (var key in results) {
+    let val = results[key];
+    if (key)
+      results_str.push(key + ' - ' + val);
+  }
 
   res.render('page', {
     heading: 'Regions of the World',
-    results: results,
+    results: results_str,
   });
 });
 
