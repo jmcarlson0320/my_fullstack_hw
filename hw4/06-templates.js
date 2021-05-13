@@ -40,7 +40,7 @@ app.get('/capitals', (req, res) => {
 
   let results = [];
   data.forEach((country, index, data) => {
-    results.push(country.name + ', ' + country.capital);
+    results.push(country.name + ' - ' + country.capital);
   });
 
   res.render('page', {
@@ -54,11 +54,31 @@ app.get('/populous', (req, res) => {
   // sort the resulting array to show the results in order of population
   // map the resulting array into a new array with the country name and formatted population
 
-  results = ['China', 'India', 'United States of America'];
+  let results = [];
+  data.forEach((country, index, data) => {
+    if (country.population >= 50000000) {
+      results.push([country.name, country.population]);
+    }
+  });
+
+  // sort results by population
+  results.sort((a, b) => {
+    if (a[1] === b[1]) {
+      return 0;
+    } else {
+      return (a[1] > b[1]) ? -1 : 1;
+    }
+  });
+
+  // build array of strings to render
+  results_str = [];
+  results.forEach((filtered_countries, index, data) => {
+    results_str.push(filtered_countries[0] + ' - ' + filtered_countries[1].toLocaleString());
+  });
 
   res.render('page', {
     heading: 'Most Populous Countries',
-    results: results,
+    results: results_str,
   });
 });
 
